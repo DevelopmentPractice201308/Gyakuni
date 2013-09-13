@@ -30,6 +30,8 @@ describe User do
 
   it { should be_valid }
 
+# -------------------------------------------------------------------------
+
   describe "when name is too long" do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
@@ -66,6 +68,8 @@ foo@bar_baz.com foo@bar+baz.com]
     it { should_not be_valid }
   end
 
+# -------------------------------------------------------------------------
+
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
@@ -80,6 +84,8 @@ foo@bar_baz.com foo@bar+baz.com]
     before { @user.password_confirmation = nil }
     it { should_not be_valid }
   end
+
+# -------------------------------------------------------------------------
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
